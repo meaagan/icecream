@@ -1,0 +1,2 @@
+class IceCreamFlavour < ApplicationRecord
+end

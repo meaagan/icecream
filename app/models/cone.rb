@@ -1,0 +1,2 @@
+class Cone < ApplicationRecord
+end

@@ -10,10 +10,53 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_30_230225) do
+ActiveRecord::Schema.define(version: 2020_11_30_232256) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cones", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "ice_cream_flavours", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "ice_cream_types", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "sundaes", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "cone_id"
+    t.bigint "ice_cream_flavour_id"
+    t.bigint "ice_cream_type_id"
+    t.bigint "topping_id"
+    t.index ["cone_id"], name: "index_sundaes_on_cone_id"
+    t.index ["ice_cream_flavour_id"], name: "index_sundaes_on_ice_cream_flavour_id"
+    t.index ["ice_cream_type_id"], name: "index_sundaes_on_ice_cream_type_id"
+    t.index ["topping_id"], name: "index_sundaes_on_topping_id"
+  end
+
+  create_table "toppings", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "total_prices", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +70,8 @@ ActiveRecord::Schema.define(version: 2020_11_30_230225) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "sundaes", "cones"
+  add_foreign_key "sundaes", "ice_cream_flavours"
+  add_foreign_key "sundaes", "ice_cream_types"
+  add_foreign_key "sundaes", "toppings"
 end

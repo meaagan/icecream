@@ -1,0 +1,2 @@
+class TotalPrice < ApplicationRecord
+end
