@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_30_232256) do
+ActiveRecord::Schema.define(version: 2020_12_18_185825) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,18 +19,21 @@ ActiveRecord::Schema.define(version: 2020_11_30_232256) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.float "price"
   end
 
   create_table "ice_cream_flavours", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.float "price"
   end
 
   create_table "ice_cream_types", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.float "price"
   end
 
   create_table "sundaes", force: :cascade do |t|
@@ -51,6 +54,7 @@ ActiveRecord::Schema.define(version: 2020_11_30_232256) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.float "price"
   end
 
   create_table "total_prices", force: :cascade do |t|

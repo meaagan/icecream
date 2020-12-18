@@ -1,2 +1,22 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+<ul>
+    <% @cones.each do |cone| %>
+    <li>Name: <%= cone.name %> | Price: <%= cone.price%></li>
+    <% end %>
+</ul>
+<ul>
+    <% @flavours.each do |flavour| %>
+    <li>Name: <%= flavour.name %> | Price: <%= flavour.price%></li>
+    <% end %>
+</ul>
+<ul>
+    <% @types.each do |type| %>
+    <li>Name: <%= type.name %> | Price: <%= type.price%></li>
+    <% end %>
+</ul>
+<ul>
+    <% @toppings.each do |topping| %>
+    <li>Name: <%= topping.name %> | Price: <%= topping.price%></li>
+    <% end %>
+</ul>
