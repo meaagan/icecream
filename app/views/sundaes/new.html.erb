@@ -1,8 +1,8 @@
 <h2>Build your own</h2>
 <%= simple_form_for @sundae do |f| %>
-    <%= f.association :cone, collection: @cones %>
-    <%= f.association :ice_cream_flavour, collection: @flavours %>
-    <%= f.association :ice_cream_type, collection: @types %>
-    <%= f.association :topping, collection: @toppings %>
+    <%= f.input :cone_id, collection: @cones, as: :select %>
+    <%= f.input :ice_cream_flavour_id, collection: @flavours, as: :select %>
+    <%= f.input :ice_cream_type_id, collection: @types, as: :select %>
+    <%= f.input :topping_id, collection: @toppings, as: :select %>
     <%= f.submit "Get rate" %>
 <% end %>
