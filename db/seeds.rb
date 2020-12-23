@@ -6,13 +6,18 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-me = User.create(email: 'meagan@email.com', password: 123456)
+
 
 require 'csv'
 
-csv_options = { col_sep: ',', headers: :first_row }
 
 puts "Starting seed..."
+
+puts "Creating user"
+
+User.create(email: 'meagan@email.com', password: 123456)
+
+csv_options = { col_sep: ',', headers: :first_row }
 
 cone_file ='lib/data/cone.csv'
 flavor_file ='lib/data/flavor.csv'
@@ -26,37 +31,41 @@ CSV.foreach(cone_file, csv_options) do |row|
         name: "#{row['name']}", 
         price: row['price'].to_f
     )
-    puts "Created #{row['Name']} at $#{row['price']}"
+    puts "Created #{row['name']} at $#{row['price']}"
 end
 
-# puts "Seeding flavours"
+puts "Seeding flavours"
 
-# CSV.foreach(flavor_file, csv_options) do |row|
-#     IceCreamFlavour.create(
-#         name: "#{row['Name']}", 
-#         price: row['price'].to_f
-#     )
-#     puts "Created #{row['Name']} at $#{row['price']}"
-# end
+CSV.foreach(flavor_file, csv_options) do |row|
+    IceCreamFlavour.create(
+        name: "#{row['name']}", 
+        price: row['price'].to_f
+    )
+    puts "Created #{row['name']} at $#{row['price']}"
+end
 
-# puts "Seeding toppings"
+puts "Seeding toppings"
 
-# CSV.foreach(toppings_file, csv_options) do |row|
-#     Topping.create(
-#         name: "#{row['Name']}", 
-#         price: row['price'].to_f
-#     )
-#     puts "Created #{row['Name']} at $#{row['price']}"
-# end
+CSV.foreach(toppings_file, csv_options) do |row|
+    Topping.create(
+        name: "#{row['name']}", 
+        price: row['price'].to_f
+    )
+    puts "Created #{row['name']} at $#{row['price']}"
+end
 
-# puts "Seeding types"
+puts "Seeding types"
 
-# CSV.foreach(type_file, csv_options) do |row|
-#     IceCreamType.create(
-#         name: "#{row['Name']}", 
-#         price: row['price'].to_f
-#     )
-#     puts "Created #{row['Name']} at $#{row['price']}"
-# end
+CSV.foreach(type_file, csv_options) do |row|
+    IceCreamType.create(
+        name: "#{row['name']}", 
+        price: row['price'].to_f
+    )
+    puts "Created #{row['name']} at $#{row['price']}"
+end
 
-# puts "Done"
+puts "Creating one sundae"
+
+Sundae.create(cone_id: 1, ice_cream_type_id: 1,ice_cream_flavour_id: 1, topping_id: 1)
+
+puts "Done"

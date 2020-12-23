@@ -1,2 +1,7 @@
-<h1>Sundae#index</h1>
-<p>Find me in app/views/sundae/index.html.erb</p>
+<% @sundaes.foreach do |sundae| %>
+    <%= sundae.id %>
+    <%= sundae.cone_id %>
+    <%= sundae.ice_cream_flavour_id %>
+    <%= sundae.ice_cream_type_id %>
+    <%= sundae.topping_id %>
+<% end %>

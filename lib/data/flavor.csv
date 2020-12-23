@@ -1,7 +1,7 @@
-﻿Name,price
-chocolate,4
-vanilla,4
-brownie,4.5
-cookie dough,4.5
-mint,4.25
-oreo,4.15
+﻿id,name,price
+0,chocolate,4
+1,vanilla,4
+2,brownie,4.5
+3,cookie dough,4.5
+4,mint,4.25
+5,oreo,4.15

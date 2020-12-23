@@ -1,28 +1,50 @@
 class SundaesController < ApplicationController
-  def index
-    @sundaes = Sundae.all
-  end
+    def new 
+        # create new sundae to get access to the price of each model 
+        @sundae = Sundae.new
 
-  def new
-  end
+        # display all data from each model in a separate drop down 
+        cones = Cone.all
+        @cones = cones.map do |cone|
+            [cone.name, cone.id]
+        end
+        
+        flavours = IceCreamFlavour.all
+        @flavours = flavours.map do |flavour|
+            [flavour.name, flavour.id]
+        end
+        types = IceCreamType.all
+        @types = types.map do |type|
+            [type.name, type.id]
+        end
 
-  def create
-  end
+        toppings = Topping.all
+        @toppings = toppings.map do |topping|
+            [topping.name, topping.id]
+        end
+    end
 
-  def update
-    @sundae = Sundae.find(params[:id])
-    @sundae.update(sundae_params)
+    def create 
+        @sundae = Sundae.new(params_sundae)
 
-    redirect_to sundae_path(@sundae)
-  end
+        if @sundae.save
+            redirect_to sundae_path(@sundae)
+        else
+            render :new
+        end
+    end
 
-  def edit
-  end
+    def show
+        @sundae = Sundae.find(params[:id])
+    end
 
-  def delete
-  end
+    def index
+        @sundaes = Sundae.all
+    end
 
-  def show
-    @sundae = Sundae.find(params[:id])
-  end
+    private
+
+    def params_sundae
+        params.require(:sundae).permit(:cone_id, :ice_cream_flavour_id,:ice_cream_type_id,:topping_id)
+    end
 end

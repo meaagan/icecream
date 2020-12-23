@@ -1,5 +1,5 @@
-﻿Name,price
-marshmallows,0.5
-cereal,0.5
-skor,0.5
-oreo,0.5
+﻿id,name,price
+0,marshmallows,0.5
+1,cereal,0.5
+2,skor,0.5
+3,oreo,0.5
