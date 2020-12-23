@@ -1,8 +1,16 @@
 <h2>Build your own</h2>
-<%= simple_form_for @sundae do |f| %>
-    <%= f.input :cone_id, collection: @cones, as: :select %>
-    <%= f.input :ice_cream_flavour_id, collection: @flavours, as: :select %>
-    <%= f.input :ice_cream_type_id, collection: @types, as: :select %>
-    <%= f.input :topping_id, collection: @toppings, as: :select %>
-    <%= f.submit "Get rate" %>
+
+<%= turbo_frame_tag "new_sundae", target: "_top" do %> 
+  <%= simple_form_for(@sundae, data: {controller: "reset_form", action: "turbo:submit-end->reset_form#reset"}) do |f| %>
+      <%= f.input :cone_id, collection: @cones, as: :select %>
+      <%= f.input :ice_cream_flavour_id, collection: @flavours, as: :select %>
+      <%= f.input :ice_cream_type_id, collection: @types, as: :select %>
+      <%= f.input :topping_id, collection: @toppings, as: :select %>
+      <%= f.submit "Get rate" %>
+  <% end %>
+<% end %>
+
+
+<% if @sundae.errors %>
+  <%= @sundae.errors.full_messages %>
 <% end %>

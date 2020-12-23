@@ -1,3 +1,4 @@
-<% @sundaes.foreach do |sundae| %>
-    <%= sundae.id %>
+<%= turbo_stream_from "sundaes" %>
+<%= turbo_frame_tag "sundaes" do %>
+<%= render partial: "sundaes/sundae", collection: @sundaes %>
 <% end %>

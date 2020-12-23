@@ -25,13 +25,8 @@ class SundaesController < ApplicationController
     end
 
     def create 
-        @sundae = Sundae.new(params_sundae)
-
-        if @sundae.save
-            redirect_to sundae_path(@sundae)
-        else
-            render :new
-        end
+        @sundae = Sundae.create(params_sundae)
+        redirect_to sundaes_path
     end
 
     def show
@@ -41,6 +36,7 @@ class SundaesController < ApplicationController
     def index
         @sundaes = Sundae.all
     end
+
 
     private
 

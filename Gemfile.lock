@@ -95,6 +95,10 @@ GEM
       sassc (>= 1.11)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    hotwire-rails (0.1.1)
+      rails (>= 6.0.0)
+      stimulus-rails
+      turbo-rails
     i18n (1.8.5)
       concurrent-ruby (~> 1.0)
     jbuilder (2.10.1)
@@ -199,12 +203,13 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    stimulus-rails (0.1.1)
+      rails (>= 6.0.0)
     thor (1.0.1)
     thread_safe (0.3.6)
     tilt (2.0.10)
-    turbolinks (5.2.1)
-      turbolinks-source (~> 5.2)
-    turbolinks-source (5.2.0)
+    turbo-rails (0.5.1)
+      rails (>= 6.0.0)
     tzinfo (1.2.8)
       thread_safe (~> 0.1)
     warden (1.2.9)
@@ -240,6 +245,7 @@ DEPENDENCIES
   devise
   dotenv-rails
   font-awesome-sass
+  hotwire-rails (~> 0.1.1)
   jbuilder (~> 2.7)
   listen (~> 3.2)
   pg (>= 0.18, < 2.0)
@@ -253,7 +259,7 @@ DEPENDENCIES
   simple_form
   spring
   spring-watcher-listen (~> 2.0.0)
-  turbolinks (~> 5)
+  turbo-rails
   tzinfo-data
   web-console (>= 3.3.0)
   webdrivers
