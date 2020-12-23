@@ -11,7 +11,3 @@ Run yarn
 Run rails s
 
 Open localhost:3000
-
-??
-
-PROFIT
