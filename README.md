@@ -1,1 +1,1 @@
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
+Simple app to calculate total price of a sundae. Sundae has a cone, topping, flavour, and type and each element has a price attached to it. 
