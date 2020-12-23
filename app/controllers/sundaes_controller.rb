@@ -22,6 +22,8 @@ class SundaesController < ApplicationController
         @toppings = toppings.map do |topping|
             [topping.name, topping.id]
         end
+
+        @sundaes = Sundae.all
     end
 
     def create 

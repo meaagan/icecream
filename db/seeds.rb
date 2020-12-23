@@ -64,8 +64,4 @@ CSV.foreach(type_file, csv_options) do |row|
     puts "Created #{row['name']} at $#{row['price']}"
 end
 
-puts "Creating one sundae"
-
-Sundae.create(cone_id: 1, ice_cream_type_id: 1,ice_cream_flavour_id: 1, topping_id: 1)
-
 puts "Done"
