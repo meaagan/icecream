@@ -36,6 +36,8 @@ class SundaesController < ApplicationController
 
     def show
         @sundae = Sundae.find(params[:id])
+
+        @total = @sundae.cone.price + @sundae.ice_cream_flavour.price + @sundae.ice_cream_type.price + @sundae.topping.price
     end
 
     def index
