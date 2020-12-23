@@ -4,10 +4,10 @@ Simple app to calculate total price of a sundae. Each element of the sundae come
 
 Fork and clone repo
 
-Run bundle i 
+Run `bundle i` 
 
-Run yarn 
+Run `rails db:migrate db:seed`
 
-Run rails s
+Run `rails s`
 
-Open localhost:3000
+Open localhost:3000 in your browser
